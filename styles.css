@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+    padding-top: 40px;
+}
+
+h1 {
+    color: #333;
+}
+
+#wordInput {
+    padding: 10px;
+    font-size: 16px;
+    width: 200px;
+}
+
+#checkButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#checkButton:hover {
+    background-color: #45a049;
+}
+
+#result {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #333;
+}
