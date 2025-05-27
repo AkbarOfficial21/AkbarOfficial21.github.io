@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Grade Nilai</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e6f2ff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background-color: #b3d9ff;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        h1 {
+            color: #0066cc;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #004d99;
+            font-weight: 600;
+        }
+        
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #99ccff;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: #f0f7ff;
+            box-sizing: border-box;
+        }
+        
+        button {
+            background-color: #4da6ff;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #3385ff;
+        }
+        
+        .result {
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #cce6ff;
+            text-align: center;
+            font-size: 18px;
+            color: #003366;
+            display: none;
+        }
+        
+        .grade-A {
+            background-color: #b3ffb3;
+            color: #006600;
+        }
+        
+        .grade-B {
+            background-color: #ccffcc;
+            color: #008000;
+        }
+        
+        .grade-C {
+            background-color: #ffffb3;
+            color: #996600;
+        }
+        
+        .grade-D {
+            background-color: #ffd9b3;
+            color: #cc6600;
+        }
+        
+        .grade-E {
+            background-color: #ffb3b3;
+            color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kalkulator Grade Nilai</h1>
+        
+        <form id="gradeForm">
+            <div class="form-group">
+                <label for="nama">Nama Mahasiswa:</label>
+                <input type="text" id="nama" name="nama" required placeholder="Masukkan nama Anda">
+            </div>
+            
+            <div class="form-group">
+                <label for="nilai">Nilai (0-100):</label>
+                <input type="number" id="nilai" name="nilai" min="0" max="100" required placeholder="Masukkan nilai antara 0-100">
+            </div>
+            
+            <button type="submit">Hitung Grade</button>
+        </form>
+        
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('gradeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nama = document.getElementById('nama').value;
+            const nilai = parseInt(document.getElementById('nilai').value);
+            const resultDiv = document.getElementById('result');
+            
+            let grade = '';
+            let className = '';
+            
+            if (nilai >= 85) {
+                grade = 'A';
+                className = 'grade-A';
+            } else if (nilai >= 75) {
+                grade = 'B';
+                className = 'grade-B';
+            } else if (nilai >= 65) {
+                grade = 'C';
+                className = 'grade-C';
+            } else if (nilai >= 50) {
+                grade = 'D';
+                className = 'grade-D';
+            } else {
+                grade = 'E';
+                className = 'grade-E';
+            }
+            
+            resultDiv.textContent = `Halo ${nama}, nilai Anda ${nilai} mendapatkan grade ${grade}`;
+            resultDiv.className = 'result ' + className;
+            resultDiv.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
